@@ -1,0 +1,91 @@
+
+
+Episode: 1
+
+Episode: N
+
+
+====================================================================================
+Ownership:
+
+This concept is little confusing, yet one of the most important concepts in RUST.
+
+Ownership is a set of rules that governs how a Rust program manages memory.
+memory is managed through a system of ownership with a set of rules that the compiler checks.
+(most of the languages has garbage collector).
+
+
+
+Ownership Rules:
+> Each value in Rust has an owner.
+> There can only be one owner at a time.
+> When the owner goes out of scope, the value will be dropped.
+
+In short, Rust assigns memory when value is in scope.
+drops memory as soon as value goes out of scope.
+
+memory assignment is decided based on the value, if the value is known size or not. 
+if value is known size then it is assigned in Stack, otherwise in heap.
+
+So the variable behaviour differes based on the heap OR stack.
+
+
+
+Ex1:
+{                      
+       // s is not valid here, it’s not yet declared
+
+        let s: i32 = 2;   // s is valid from this point forward
+        another_method(s)
+
+		// s is still valid 
+}
+// s scope is now over, and s is no longer valid
+
+Ex2:
+
+{
+    // s1 is not valid here, it’s not yet declared
+    let s1 =  String::from("hello"); // s1 is valid from this point forward
+
+    another_method(s1);  // s1 ownership went to another_metod scope
+ 
+    // s1 is not valid 
+}
+
+
+Understading of ownership is very important to code in Rust. hence it is advised to understand in depth for better programming.
+
+
+
+====================================================================================
+
+21-jul-2022
+
+Ownership: References and borrowing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
